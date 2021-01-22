@@ -24,7 +24,7 @@ orange = "0"
 red = "0"
 
 
-def color_set(block_color, model):  # 函数返回值为颜色对应的面（白黄绿蓝橙红）
+def color_set(block_color, model):  # 设置颜色对应的面（白黄绿蓝橙红）
     global white
     global yellow
     global green
@@ -121,7 +121,6 @@ def color_recognition(b, g, r, flag=0):  # flag为1时是用于识别颜色并�
     # 计算v大小
     v = C_max
     # 根据hsv进行比较判断
-    # print(h, s, v)  # 本行便于debug，到时候删掉
     if flag == 1:
         if 0 <= h <= 360 and 0 <= s <= 30 / 255 and 120 / 255 <= v <= 1:  # white
             return white
@@ -175,12 +174,8 @@ def color_extraction(side, flag=0):
     Side[3] = color_recognition(Color.b, Color.g, Color.r, flag)
     if flag == 1:
         print(Side[3], end="")
-    # 以下是展示图片的，方便debug，到时候要删掉
-    # cv2.imshow("test", final_img)
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
 
-
+        
 # **********************************************************************************************************************
 color_extraction("forward", 0)  # 识别forward3的颜色
 color_set(Side[3], 0)
